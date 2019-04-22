@@ -7,31 +7,27 @@
 //
 
 import Cocoa
+import WebKit
+import QuartzCore
+
+class Ayah {
+    var surah: Int
+    var ayah: Int
+    
+    init(surah: Int, ayah: Int) {
+        self.surah = surah
+        self.ayah = ayah
+    }
+}
 
 class ViewController: NSViewController {
-
+    @IBOutlet weak var webview: WKWebView!
+    
     @IBOutlet weak var surah: NSTextField!
     @IBOutlet weak var verse: NSTextField!
+    var randomAyah: Ayah?
     
-    var surahValue = 1
-    var ayahValue = 1
-    
-    @IBAction func visit(_ sender: Any) {
-        let url = URL(string: "https://quran.com/\(surahValue)/\(ayahValue)")
-        NSWorkspace.shared.open(url!)
-    }
-    
-    func refresh() {
-        surahValue = Int.random(in: 0...113)
-        ayahValue = getRandomAyah(forSurah: surahValue)
-        
-        
-        surah.stringValue = "\(surahValue)"
-        verse.stringValue = "\(ayahValue)"
-    }
-    
-    private func getRandomAyah(forSurah surahNumber: Int) -> Int {
-        let maxAyahInSurah = [
+    let maxAyahInSurah = [
         7,286,200,176,120,165,206,75,129,109,
         123,111,43,52,99,128,111,110,98,135,
         112,78,118,64,77,227,93,88,69,60,
@@ -44,16 +40,43 @@ class ViewController: NSViewController {
         15,21,11,8,8,19,5,8,8,11,
         11,8,3,9,5,4,7,3,6,3,
         5,4,5,6]
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.wantsLayer = true
+        view.superview?.wantsLayer = true
+        webview.navigationDelegate = self
+        view.frame = NSScreen.main?.frame ?? NSRect(x: 0, y: 0, width: 100, height: 100)
+        refresh()
+    }
+    
+    @IBAction func visit(_ sender: Any) {
+        refresh()
+    }
+    
+    func getRandomAyah() -> Ayah {
+        let randomSurah = Int.random(in: 1...113)
+        let randomAyah = Int.random(in: 1...maxAyahInSurah[randomSurah])
+
+        let randomAyahObj = Ayah(surah: randomSurah, ayah: randomAyah)
+        return randomAyahObj
+    }
+    
+    private func refresh() {
+        showRandomAyah()
     }
     
     @IBAction func actionRefresh(_ sender: Any) {
         refresh()
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        refresh()
-        // Do any additional setup after loading the view.
+    private func showRandomAyah() {
+        let randomAyah = getRandomAyah()
+//        guard let url = URL(string: "https://www.google.com/") else { return }
+        guard let url = URL(string: "https://quran.com/\(randomAyah.surah)/\(randomAyah.ayah)") else { return }
+        
+        let request = URLRequest(url: url)
+        webview.load(request)
     }
 
     override var representedObject: Any? {
@@ -65,3 +88,8 @@ class ViewController: NSViewController {
 
 }
 
+extension ViewController: WKNavigationDelegate {
+    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+        decisionHandler(.allow)
+    }
+}

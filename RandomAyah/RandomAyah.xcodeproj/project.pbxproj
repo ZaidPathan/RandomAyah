@@ -11,6 +11,8 @@
 		153E5FA4213537E6003A3E95 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153E5FA3213537E6003A3E95 /* ViewController.swift */; };
 		153E5FA6213537E9003A3E95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 153E5FA5213537E9003A3E95 /* Assets.xcassets */; };
 		153E5FA9213537E9003A3E95 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 153E5FA7213537E9003A3E95 /* Main.storyboard */; };
+		15B6D43D226E268200DD729D /* DesignableWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B6D43C226E268200DD729D /* DesignableWebView.swift */; };
+		15B6D43F226E3F1100DD729D /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B6D43E226E3F1100DD729D /* BaseView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +23,8 @@
 		153E5FA8213537E9003A3E95 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		153E5FAA213537E9003A3E95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		153E5FAB213537E9003A3E95 /* RandomAyah.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RandomAyah.entitlements; sourceTree = "<group>"; };
+		15B6D43C226E268200DD729D /* DesignableWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableWebView.swift; sourceTree = "<group>"; };
+		15B6D43E226E3F1100DD729D /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +57,7 @@
 		153E5FA0213537E6003A3E95 /* RandomAyah */ = {
 			isa = PBXGroup;
 			children = (
+				15B6D43A226E266000DD729D /* View */,
 				153E5FA1213537E6003A3E95 /* AppDelegate.swift */,
 				153E5FA3213537E6003A3E95 /* ViewController.swift */,
 				153E5FA5213537E9003A3E95 /* Assets.xcassets */,
@@ -61,6 +66,23 @@
 				153E5FAB213537E9003A3E95 /* RandomAyah.entitlements */,
 			);
 			path = RandomAyah;
+			sourceTree = "<group>";
+		};
+		15B6D43A226E266000DD729D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				15B6D43B226E266C00DD729D /* Comps */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		15B6D43B226E266C00DD729D /* Comps */ = {
+			isa = PBXGroup;
+			children = (
+				15B6D43C226E268200DD729D /* DesignableWebView.swift */,
+				15B6D43E226E3F1100DD729D /* BaseView.swift */,
+			);
+			path = Comps;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -95,6 +117,11 @@
 				TargetAttributes = {
 					153E5F9D213537E6003A3E95 = {
 						CreatedOnToolsVersion = 9.4;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -134,7 +161,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				153E5FA4213537E6003A3E95 /* ViewController.swift in Sources */,
+				15B6D43D226E268200DD729D /* DesignableWebView.swift in Sources */,
 				153E5FA2213537E6003A3E95 /* AppDelegate.swift in Sources */,
+				15B6D43F226E3F1100DD729D /* BaseView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,7 +298,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = RandomAyah/RandomAyah.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = RandomAyah/Info.plist;
@@ -287,7 +315,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = RandomAyah/RandomAyah.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = RandomAyah/Info.plist;
