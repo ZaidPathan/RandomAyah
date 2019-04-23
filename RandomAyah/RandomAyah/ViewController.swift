@@ -73,7 +73,9 @@ class ViewController: NSViewController {
     private func showRandomAyah() {
         let randomAyah = getRandomAyah()
 //        guard let url = URL(string: "https://www.google.com/") else { return }
-        guard let url = URL(string: "https://quran.com/\(randomAyah.surah)/\(randomAyah.ayah)") else { return }
+        let finalURL = "https://quran.com/\(randomAyah.surah)/\(randomAyah.ayah)"
+        print("Final URL: \(finalURL)")
+        guard let url = URL(string: finalURL) else { return }
         
         let request = URLRequest(url: url)
         webview.load(request)
