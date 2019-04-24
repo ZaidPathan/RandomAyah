@@ -701,21 +701,35 @@
                 </windowController>
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-34" y="273.5"/>
+            <point key="canvasLocation" x="82" y="266"/>
         </scene>
         <!--Beautiful Ayah Of The Day-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
                 <viewController title="Beautiful Ayah Of The Day" id="XfG-lQ-9wD" customClass="ViewController" customModule="RandomAyah" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <rect key="frame" x="0.0" y="0.0" width="680" height="173"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <customView appearanceType="aqua" translatesAutoresizingMaskIntoConstraints="NO" id="p2e-zh-DYs" customClass="BaseView" customModule="RandomAyah" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                                <rect key="frame" x="0.0" y="0.0" width="680" height="173"/>
+                                <subviews>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="MR4-rj-Yny">
+                                        <rect key="frame" x="18" y="136" width="37" height="17"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="Fdg-rP-sSm">
+                                            <font key="font" usesAppearanceFont="YES"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="MR4-rj-Yny" firstAttribute="top" secondItem="p2e-zh-DYs" secondAttribute="top" constant="20" id="gna-eE-vzf"/>
+                                    <constraint firstItem="MR4-rj-Yny" firstAttribute="leading" secondItem="p2e-zh-DYs" secondAttribute="leading" constant="20" id="y3w-Xf-2ox"/>
+                                </constraints>
                             </customView>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="SYt-hd-gnZ">
-                                <rect key="frame" x="899" y="952" width="87" height="32"/>
+                                <rect key="frame" x="579" y="125" width="87" height="32"/>
                                 <buttonCell key="cell" type="push" title="Refresh" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="geK-Na-b2F">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -725,7 +739,7 @@
                                 </connections>
                             </button>
                             <wkWebView wantsLayer="YES" allowsBackForwardNavigationGestures="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZIv-PG-cFc" customClass="DesignableWebView" customModule="RandomAyah" customModuleProvider="target">
-                                <rect key="frame" x="30" y="30" width="940" height="909"/>
+                                <rect key="frame" x="0.0" y="0.0" width="680" height="112"/>
                                 <wkWebViewConfiguration key="configuration" applicationNameForUserAgent="Beautiful Ayah of The Day">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
                                     <wkPreferences key="preferences"/>
@@ -748,15 +762,21 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </wkWebView>
+                            <progressIndicator wantsLayer="YES" maxValue="100" doubleValue="20" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="Ud3-BD-YGm">
+                                <rect key="frame" x="0.0" y="99" width="680" height="20"/>
+                            </progressIndicator>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="ZIv-PG-cFc" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="30" id="3ns-Y6-sf6"/>
+                            <constraint firstItem="ZIv-PG-cFc" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="3ns-Y6-sf6"/>
                             <constraint firstItem="p2e-zh-DYs" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="5AF-S4-3Sk"/>
                             <constraint firstAttribute="bottom" secondItem="p2e-zh-DYs" secondAttribute="bottom" id="Aar-gm-rDq"/>
-                            <constraint firstAttribute="bottom" secondItem="ZIv-PG-cFc" secondAttribute="bottom" constant="30" id="B12-7A-PL0"/>
+                            <constraint firstAttribute="bottom" secondItem="ZIv-PG-cFc" secondAttribute="bottom" id="B12-7A-PL0"/>
                             <constraint firstItem="SYt-hd-gnZ" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="E7d-Ra-UfW"/>
+                            <constraint firstItem="Ud3-BD-YGm" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="KGV-4s-Vak"/>
                             <constraint firstAttribute="trailing" secondItem="SYt-hd-gnZ" secondAttribute="trailing" constant="20" id="Ob5-EB-lrq"/>
-                            <constraint firstAttribute="trailing" secondItem="ZIv-PG-cFc" secondAttribute="trailing" constant="30" id="ZG4-OG-uEa"/>
+                            <constraint firstAttribute="trailing" secondItem="Ud3-BD-YGm" secondAttribute="trailing" id="QXo-Em-taM"/>
+                            <constraint firstItem="Ud3-BD-YGm" firstAttribute="top" secondItem="SYt-hd-gnZ" secondAttribute="bottom" constant="14" id="TTA-mG-ylm"/>
+                            <constraint firstAttribute="trailing" secondItem="ZIv-PG-cFc" secondAttribute="trailing" id="ZG4-OG-uEa"/>
                             <constraint firstItem="ZIv-PG-cFc" firstAttribute="top" secondItem="SYt-hd-gnZ" secondAttribute="bottom" constant="20" id="uio-JG-liH"/>
                             <constraint firstItem="p2e-zh-DYs" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="vdh-2w-zQA"/>
                             <constraint firstAttribute="trailing" secondItem="p2e-zh-DYs" secondAttribute="trailing" id="wbr-Xh-lnK"/>
@@ -769,7 +789,7 @@
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <userDefaultsController representsSharedInstance="YES" id="uiC-tM-ARm"/>
             </objects>
-            <point key="canvasLocation" x="125" y="693"/>
+            <point key="canvasLocation" x="82" y="683.5"/>
         </scene>
     </scenes>
 </document>
